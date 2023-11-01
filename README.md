@@ -30,7 +30,7 @@ pressure report, as determined by the research team. In addition, existing
 technologies are unable of determining whether a patient's condition is critical
 or not.
 
-ndividual Research Question
+individual Research Question
 Individual Research Objectives
 
 
