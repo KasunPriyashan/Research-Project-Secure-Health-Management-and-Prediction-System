@@ -1,0 +1,313 @@
+desired_coverage,age,children,heart_disease,diabetes,suitable_insurance_plan
+300000,23,0,0,0,Comprehensive Health Plus
+100000,18,0,0,0,Allianz Child Protector
+2500000,31,4,0,0,AIA HEALTH PASSPORT
+500000,22,0,0,0,Comprehensive Health Plus
+1000000,69,1,0,0,Medi 60
+250000,59,1,1,0,AIA SUWA DIRIYA
+800000,25,1,1,0,MEDI PLUS
+600000,58,5,0,1,Comprehensive D+ Plan
+1000000,44,2,0,0,Allianz Healthcare Corporate
+1000000,65,5,0,0,Medi 60
+200000,21,0,0,1,Comprehensive D+ Plan
+150000,44,0,0,0,Health 360
+500000,36,2,1,0,MEDI PLUS
+1400000,47,5,1,1,Allianz Arogya
+1300000,47,0,1,1,Allianz Arogya
+100000,39,3,1,1,Allianz Arogya
+100000,18,0,0,0,Allianz Child Protector
+100000,40,4,1,1,Allianz Arogya
+1000000,60,2,0,0,WELLNESS Health Solutions
+1000000,34,0,0,0,Allianz Healthcare Corporate
+2000000,19,0,1,0,AIA SUWA DIRIYA
+1000000,39,2,0,0,Allianz Healthcare
+200000,25,3,0,1,Comprehensive D+ Plan
+100000,18,0,0,0,Allianz Child Protector
+100000,18,0,0,0,Allianz Child Protector
+150000,26,3,0,0,Health 360
+200000,50,1,0,1,Comprehensive D+ Plan
+750000,34,1,1,0,MEDI PLUS
+1000000,50,1,0,0,Allianz Healthcare
+1500000,19,0,0,0,Union Smart Health Premier
+700000,35,1,0,0,Surgical Plan
+1000000,57,3,0,0,WELLNESS Health Solutions
+1000000,34,3,0,0,Allianz Healthcare Corporate
+200000,19,0,0,1,Comprehensive D+ Plan
+1500000,18,0,0,0,Union Smart Health Premier
+1000000,69,3,0,0,Medi 60
+300000,22,2,0,0,Comprehensive Health Plus
+1200000,49,4,0,0,AIA HEALTH PASSPORT
+1000000,69,4,0,0,Allianz Healthcare Corporate
+1000000,67,5,0,0,Medi 60
+1000000,47,0,1,0,MEDI PLUS
+1500000,20,0,0,1,Union Smart Health Premier
+1000000,59,1,1,0,AIA HEALTH PASSPORT
+150000,58,4,0,0,Health 360
+150000,48,4,0,0,Health 360
+1000000,57,0,1,0,Allianz Vishrama Suwa
+100000,18,0,0,0,Allianz Child Protector
+200000,30,3,0,1,Comprehensive D+ Plan
+1000000,23,2,0,1,Allianz Healthcare Corporate
+400000,48,5,0,1,Comprehensive D+ Plan
+1000000,61,1,0,0,Allianz Vishrama Suwa
+1600000,36,5,1,1,AIA HEALTH PASSPORT
+1500000,22,1,1,1,Union Smart Health Premier
+1500000,18,0,0,1,Union Smart Health Premier
+1000000,42,4,0,1,Allianz Healthcare
+1000000,57,3,1,1,WELLNESS Health Solutions
+150000,29,4,0,0,Health 360
+1000000,66,0,0,0,Medi 60
+800000,69,2,0,0,Surgical Plan
+300000,30,0,1,0,MEDI PLUS
+1000000,68,3,0,0,Surgical Plan
+500000,49,3,1,1,WELLNESS PLUS Insurance Solutions
+1000000,18,0,0,0,WELLNESS PLUS Insurance Solutions
+1000000,63,4,1,0,WELLNESS Health Solutions
+500000,20,0,0,0,AIA HEALTH PASSPORT
+5000000,43,3,1,0,AIA SUWA DIRIYA
+1000000,26,4,1,1,Allianz Healthcare
+100000,18,0,1,0,Allianz Child Protector
+1000000,47,0,1,0,Allianz Healthcare
+1000000,37,1,1,1,Allianz Healthcare Corporate
+1000000,68,4,0,0,Medi 60
+100000,18,0,0,0,Allianz Child Protector
+400000,47,5,0,1,Comprehensive D+ Plan
+1200000,29,5,1,1,Allianz Arogya
+2000000,37,2,1,0,AIA SUWA DIRIYA
+1500000,18,0,1,1,Union Smart Health Premier
+400000,51,2,1,0,MEDI PLUS
+1000000,22,0,1,0,Allianz Healthcare
+1500000,23,1,0,1,Union Smart Health Premier
+1000000,57,1,1,1,Allianz Healthcare Corporate
+1000000,67,2,0,0,Medi 60
+250000,27,5,1,0,AIA SUWA DIRIYA
+400000,46,4,0,1,Comprehensive D+ Plan
+2000000,21,0,0,0,Health 360
+100000,49,3,1,1,Allianz Arogya
+1000000,65,4,0,0,Surgical Plan
+500000,28,0,0,0,Surgical Plan
+250000,41,4,1,0,AIA HEALTH PASSPORT
+250000,27,5,0,1,AIA HEALTH PASSPORT
+1000000,26,1,1,0,WELLNESS PLUS Insurance Solutions
+1000000,55,5,0,0,WELLNESS Health Solutions
+1500000,21,0,0,0,Comprehensive Health Plus
+100000,18,0,0,0,Allianz Child Protector
+100000,49,4,1,1,Allianz Arogya
+1000000,28,4,0,0,Allianz Healthcare
+100000,61,3,1,1,Allianz Arogya
+600000,54,5,1,0,MEDI PLUS
+100000,18,0,0,1,Allianz Child Protector
+1000000,29,5,1,1,Allianz Arogya
+150000,46,0,0,0,Health 360
+250000,42,0,1,1,AIA HEALTH PASSPORT
+1500000,21,2,0,0,Union Smart Health Premier
+400000,35,1,0,1,Comprehensive D+ Plan
+1000000,68,0,0,0,Medi 60
+100000,18,0,0,0,Allianz Child Protector
+1000000,70,0,0,0,Medi 60
+600000,54,3,0,1,Comprehensive D+ Plan
+1200000,21,2,0,0,Comprehensive Health Plus
+100000,40,1,1,1,Allianz Arogya
+1000000,61,1,1,0,Allianz Healthcare Corporate
+1000000,41,3,1,1,Allianz Healthcare
+150000,53,0,0,0,Health 360
+500000,37,2,0,0,AIA HEALTH PASSPORT
+100000,18,0,1,0,Allianz Child Protector
+2000000,61,0,0,0,Health 360
+2000000,19,0,0,0,Health 360
+1000000,31,0,1,1,Allianz Healthcare Corporate
+500000,33,3,0,0,WELLNESS PLUS Insurance Solutions
+900000,59,1,0,0,Surgical Plan
+1000000,50,2,0,0,Allianz Healthcare Corporate
+250000,19,0,0,0,Comprehensive Health Plus
+1000000,31,4,1,0,Allianz Healthcare
+1000000,71,2,1,1,Allianz Vishrama Suwa
+2000000,20,0,0,0,Health 360
+1000000,47,4,0,0,Allianz Healthcare
+1500000,19,0,1,1,Union Smart Health Premier
+1000000,55,4,0,0,Surgical Plan
+1500000,22,0,0,0,Comprehensive Health Plus
+1500000,19,0,1,0,Union Smart Health Premier
+1000000,30,5,1,0,Allianz Healthcare
+100000,18,0,0,0,Allianz Child Protector
+500000,43,2,0,0,Surgical Plan
+100000,18,0,0,0,Allianz Child Protector
+1500000,23,0,1,1,Union Smart Health Premier
+300000,20,0,1,0,AIA SUWA DIRIYA
+100000,25,0,1,1,Allianz Arogya
+1000000,57,0,1,0,WELLNESS Health Solutions
+1000000,40,2,1,0,MEDI PLUS
+1500000,22,0,0,0,Union Smart Health Premier
+1000000,48,1,1,1,Allianz Healthcare
+1000000,43,2,0,1,WELLNESS PLUS Insurance Solutions
+300000,19,0,0,0,Comprehensive Health Plus
+250000,31,0,1,0,AIA SUWA DIRIYA
+150000,51,4,0,0,Health 360
+1000000,70,3,0,0,Medi 60
+150000,19,0,0,1,Health 360
+600000,39,3,0,0,Surgical Plan
+1000000,57,4,0,0,WELLNESS Health Solutions
+1000000,34,3,0,0,Allianz Healthcare
+100000,47,1,0,0,Allianz Arogya
+1000000,66,5,0,1,Allianz Healthcare Corporate
+1000000,60,5,0,0,Medi 60
+1000000,39,5,0,0,Surgical Plan
+100000,61,5,1,1,Allianz Arogya
+100000,18,0,1,1,Allianz Child Protector
+1000000,23,1,0,0,Comprehensive Health Plus
+1100000,29,4,1,1,Allianz Arogya
+1000000,67,2,1,1,Medi 60
+1000000,65,4,1,1,WELLNESS Health Solutions
+500000,49,0,1,1,WELLNESS PLUS Insurance Solutions
+1000000,62,4,0,0,WELLNESS Health Solutions
+2000000,43,2,1,0,AIA SUWA DIRIYA
+1500000,21,0,0,1,Union Smart Health Premier
+50000,57,2,1,0,Allianz Vishrama Suwa
+100000,18,0,1,1,Allianz Child Protector
+1000000,36,4,0,0,Allianz Healthcare
+1000000,30,1,0,0,Allianz Healthcare
+200000,23,0,1,0,AIA SUWA DIRIYA
+1000000,35,4,1,0,Allianz Healthcare
+1000000,64,0,0,0,Allianz Healthcare Corporate
+1000000,62,5,0,0,Medi 60
+500000,62,2,1,0,WELLNESS PLUS Insurance Solutions
+1000000,55,1,0,0,Surgical Plan
+1000000,63,3,0,0,Allianz Vishrama Suwa
+1000000,62,5,0,0,Medi 60
+1000000,61,5,0,1,WELLNESS Health Solutions
+500000,23,0,0,0,WELLNESS PLUS Insurance Solutions
+250000,50,5,0,0,AIA HEALTH PASSPORT
+400000,35,0,1,1,Allianz Arogya
+250000,21,0,0,0,Comprehensive Health Plus
+250000,31,0,1,0,AIA HEALTH PASSPORT
+400000,19,0,0,0,Comprehensive Health Plus
+1000000,30,1,1,0,Allianz Healthcare Corporate
+400000,19,0,0,1,Comprehensive D+ Plan
+300000,18,0,0,0,Comprehensive Health Plus
+250000,26,2,0,1,AIA HEALTH PASSPORT
+750000,29,4,1,0,MEDI PLUS
+1000000,21,0,0,1,Allianz Healthcare
+400000,63,2,0,1,Comprehensive D+ Plan
+2000000,47,0,0,0,Health 360
+250000,20,2,1,0,AIA HEALTH PASSPORT
+400000,37,0,0,0,Surgical Plan
+1000000,37,2,0,1,Allianz Healthcare
+1000000,34,0,1,1,Allianz Healthcare
+150000,25,1,0,0,Health 360
+500000,36,2,1,1,Allianz Arogya
+1000000,43,5,0,1,Allianz Healthcare
+5000000,46,3,1,0,AIA SUWA DIRIYA
+1000000,65,2,1,0,Medi 60
+250000,51,3,1,0,AIA SUWA DIRIYA
+1000000,61,5,0,1,Allianz Vishrama Suwa
+500000,29,4,1,0,AIA SUWA DIRIYA
+1000000,55,5,0,1,WELLNESS Health Solutions
+2500000,51,4,1,1,Allianz Arogya
+200000,20,0,1,0,MEDI PLUS
+100000,18,0,1,0,Allianz Child Protector
+100000,26,0,1,0,Allianz Arogya
+100000,18,0,0,0,Allianz Child Protector
+2500000,42,1,0,0,AIA HEALTH PASSPORT
+500000,18,0,1,0,WELLNESS PLUS Insurance Solutions
+1000000,29,2,1,0,Allianz Healthcare
+200000,65,3,0,1,Comprehensive D+ Plan
+250000,19,0,0,0,Comprehensive Health Plus
+1000000,51,5,0,1,Allianz Healthcare
+100000,18,0,1,0,Allianz Child Protector
+1000000,41,2,0,0,Allianz Healthcare
+1500000,18,0,0,1,Union Smart Health Premier
+50000,69,0,1,1,Allianz Vishrama Suwa
+1000000,46,3,1,0,Allianz Healthcare
+1000000,60,4,1,0,WELLNESS Health Solutions
+200000,68,1,0,1,Comprehensive D+ Plan
+400000,70,1,0,1,Comprehensive D+ Plan
+1500000,56,0,0,1,WELLNESS PLUS Insurance Solutions
+300000,24,1,0,0,Surgical Plan
+100000,18,0,1,1,Allianz Child Protector
+1000000,75,5,0,0,Allianz Vishrama Suwa
+1000000,61,3,1,1,Medi 60
+600000,34,0,0,1,Comprehensive D+ Plan
+2200000,42,1,1,1,Allianz Arogya
+400000,65,3,0,1,Comprehensive D+ Plan
+1000000,68,0,0,0,Medi 60
+1000000,19,0,1,0,Allianz Healthcare
+300000,60,1,1,0,MEDI PLUS
+1000000,46,0,1,1,Allianz Healthcare
+1500000,52,0,0,0,WELLNESS PLUS Insurance Solutions
+1000000,42,2,0,0,Allianz Healthcare
+1000000,50,4,1,0,Allianz Healthcare Corporate
+500000,20,0,0,0,Comprehensive Health Plus
+600000,39,3,0,1,Comprehensive D+ Plan
+50000,75,0,0,1,Allianz Vishrama Suwa
+400000,61,1,0,1,Comprehensive D+ Plan
+250000,19,0,0,0,Comprehensive Health Plus
+1000000,45,0,0,1,Allianz Healthcare
+1000000,55,4,0,0,Surgical Plan
+100000,18,0,0,1,Allianz Child Protector
+1500000,44,1,1,1,WELLNESS PLUS Insurance Solutions
+1000000,72,2,1,1,Allianz Vishrama Suwa
+1500000,18,0,0,1,Union Smart Health Premier
+200000,60,0,0,1,Comprehensive D+ Plan
+1000000,70,5,0,0,Medi 60
+250000,33,4,1,0,AIA SUWA DIRIYA
+200000,21,0,0,0,Surgical Plan
+1000000,41,0,0,0,Allianz Healthcare
+1000000,26,0,0,0,WELLNESS PLUS Insurance Solutions
+500000,52,2,0,1,WELLNESS PLUS Insurance Solutions
+250000,18,0,0,0,Comprehensive Health Plus
+100000,18,0,1,0,Allianz Child Protector
+1000000,60,1,0,0,Medi 60
+100000,18,0,0,1,Allianz Child Protector
+1000000,67,2,0,0,Medi 60
+1500000,28,0,1,0,AIA SUWA DIRIYA
+1000000,22,0,0,0,Comprehensive Health Plus
+250000,38,4,1,0,AIA SUWA DIRIYA
+100000,44,4,1,0,Allianz Arogya
+850000,48,2,1,0,MEDI PLUS
+100000,20,0,0,0,Allianz Arogya
+1000000,67,0,0,0,Medi 60
+800000,40,3,0,0,Surgical Plan
+300000,21,0,0,0,Comprehensive Health Plus
+1000000,63,4,0,0,Medi 60
+1000000,59,2,1,0,Allianz Vishrama Suwa
+1000000,24,1,1,1,Allianz Healthcare Corporate
+250000,52,0,0,1,AIA HEALTH PASSPORT
+400000,58,3,0,1,Comprehensive D+ Plan
+300000,21,0,0,0,Surgical Plan
+100000,18,0,1,0,Allianz Child Protector
+1500000,21,0,0,0,Union Smart Health Premier
+900000,42,1,0,0,Surgical Plan
+100000,18,0,0,1,Allianz Child Protector
+100000,48,5,1,0,Allianz Arogya
+2000000,51,1,0,0,Health 360
+1000000,59,2,1,1,Allianz Vishrama Suwa
+1500000,64,4,0,1,WELLNESS PLUS Insurance Solutions
+500000,48,1,0,0,WELLNESS PLUS Insurance Solutions
+1000000,63,1,0,0,Medi 60
+1000000,42,5,0,0,Surgical Plan
+1000000,68,4,1,0,Allianz Vishrama Suwa
+150000,48,3,0,0,Health 360
+750000,44,1,0,0,Surgical Plan
+600000,24,1,0,1,Comprehensive D+ Plan
+1000000,48,4,0,0,WELLNESS PLUS Insurance Solutions
+1000000,64,1,1,1,WELLNESS Health Solutions
+1000000,47,5,1,0,AIA SUWA DIRIYA
+400000,27,2,0,1,Comprehensive D+ Plan
+1000000,59,1,1,0,WELLNESS PLUS Insurance Solutions
+2000000,48,1,1,0,AIA SUWA DIRIYA
+1000000,63,2,1,0,WELLNESS Health Solutions
+100000,18,0,1,0,Allianz Child Protector
+50000,68,0,1,0,Allianz Vishrama Suwa
+250000,27,3,1,0,AIA HEALTH PASSPORT
+1500000,21,0,1,0,Union Smart Health Premier
+1000000,60,2,0,0,Medi 60
+200000,18,0,0,0,Comprehensive Health Plus
+50000,58,3,1,1,Allianz Vishrama Suwa
+100000,18,0,0,0,Allianz Child Protector
+1500000,22,1,0,0,Comprehensive Health Plus
+1500000,22,1,1,0,Union Smart Health Premier
+200000,18,0,0,0,Surgical Plan
+500000,18,0,0,0,Comprehensive Health Plus
+1000000,36,2,1,0,Allianz Healthcare
+50000,71,4,1,1,Allianz Vishrama Suwa
+1800000,59,0,1,0,AIA SUWA DIRIYA
