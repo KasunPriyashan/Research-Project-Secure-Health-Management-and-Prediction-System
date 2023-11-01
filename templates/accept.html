@@ -1,0 +1,31 @@
+<!-- templates/accept.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept Request</title>
+</head>
+<body>
+    <h2>Doctor is requesting your details</h2>
+    <button id="acceptBtn">Accept</button>
+
+    <script>
+        document.getElementById('acceptBtn').addEventListener('click', function() {
+            // Call the accept API when the button is clicked
+            fetch(`/accept_request/{{ patient_id }}/{{ doctor_id }}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.message === "Request accepted!") {
+                    alert("You have accepted the request!");
+                } else {
+                    alert("Error accepting the request.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

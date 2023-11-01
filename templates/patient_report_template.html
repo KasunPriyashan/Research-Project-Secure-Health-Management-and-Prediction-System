@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .footer {
+            border-top: 1px solid #ddd;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header-logo {
+            height: 50px;  /* or whatever height you prefer */
+            width: auto;   /* maintains the image aspect ratio */
+            margin-right: 10px; /* space between logo and any subsequent content */
+            float: left;
+        }
+
+        .about-us {
+            text-align: right;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 2px; /
+         
+        }
+        
+        th, td {
+            text-align: center;
+            padding: 10px 5px; /* Keeping the padding for spacing */
+            padding: 5px; /* Adjust the value as needed */
+            margin: 0;    
+        }
+        
+
+
+    </style>
+</head>
+<body>
+     <div class="header">
+        <div class="logo">
+            <!-- If you have a logo, you can place it here -->
+            <img src="E:/SHMPS/progress/static/logo.png" alt="Medical Clinic Logo" width="100">
+        </div>
+        <div class="about-us">
+            <p><strong>Secure Health Management & Prediction System</strong></p>
+            <p>Dowson Street Colombo 07, Sri Lanka</p>
+            <p>Telephone: 94 765357609 </p>
+            <p>Email: info@myshmps.com</p>
+        </div>
+    </div>
+    <div class="content">
+      
+        <p><strong>Patient ID:</strong> {{ patient_id }}</p>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Glucose:</strong> {{ glucose }}</p>
+        <p><strong>Age:</strong> {{ age }}</p>
+ 
+    </div>
+
+    <div class="content">
+  <center>
+    <h2>SHMPS FULL DETAILED REPORT </h2>
+  </center>
+</div>
+
+        <!-- Invisible table starts here -->
+        <table cellspacing="0" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Test name</th>
+                    <th>Value</th>
+                    <th>Units</th>
+                    <th>Bio. Ref. Interval</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Glucose </strong></td>
+                    <td>{{ glucose }}</td>
+                    <td> mg/dL</td>
+                    <td> 70 - 99</td>
+                   
+                </tr>
+                <tr>
+                    <td><strong>Blood Preassure</strong></td>
+                    <td>{{ blood_pressure }}</td>
+                    <td> mmHg</td>
+                    <td> 80-120</td>
+                </tr>
+                <tr>
+                    <td><strong>BMI</strong></td>
+                    <td>{{ glucose }}</td>
+                    <td> kg/m²</td>
+                    <td> 18.5 to 24.9</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Invisible table ends here -->
+<center>
+    <h3>SHMPS PREDICTION RESULTS </h3>
+</center>
+        <p>Patient Diabetes Status : {{ status }}</p>
+        <p>Patient Current Risk Percentage : {{ "{:.2f}".format(risk_percentage) }}%</p>
+        <p>Patient Current Risk Percentage for Next 05 Years : {{ "{:.2f}".format(risk_5) }}%</p> <br>
+
+
+        <p><strong>SHMPS pro analyzed your symptoms following Predictions According your symptoms</strong></p>
+        
+        <p>Your risk Level : {{ level }}</p> 
+        <p>Patient Diabetes Risk Percentage According to symptoms : {{ "{:.2f}".format(risk_sym) }}%</p> <br>
+
+        <h3>Recommendations:</h3>
+        <ul>
+            {% for recommendation in recommendation %}
+            <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+      </div>
+    
+      
+    
+
+
+
+    <div class="footer">
+        <p>Generated on: {{ date }}</p>
+        <h2>scan me <h2>
+        <img src="{{ qr_data_uri }}" alt="QR Code" width="200" height="200" />
+
+    </div>
+</body>
+</html>

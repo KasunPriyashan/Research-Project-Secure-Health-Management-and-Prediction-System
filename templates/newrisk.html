@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>SHMPS - Personalized Health Predictor</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+    
+      <!-- Favicons -->
+      <link href="assets/img/health.png" rel="icon">
+      <link href="assets/img/health.png" rel="apple-touch-icon">
+    
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+    
+      <!-- Template Main CSS File -->
+      <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+
+      <script src="https://static.elfsight.com/platform/platform.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
+
+<style>
+  #displayNearbyBtn {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    color: #fff;
+    background: #3498db;
+    border: 2px solid #3498db;
+    text-align: center;
+}
+
+.btn-get-started:hover {
+    background: none;
+    color: #3498db;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;}
+
+</style>
+
+
+    </head>
+    
+    <body>
+    
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+    <a href="{{ url_for('index') }}" class="logo me-auto"><img src="{{ url_for('static', filename='assets/img//logo.png') }}" alt="" class="img-fluid"></a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/aboutus">About Us</a></li>
+        <li><a href="/disease">Diesease Prediction</a></li>
+        <li><a href="/insurance">Insurace Cost Prediction</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+        <li><a href="/regfrom" class="getstarted">Get Started</a></li>
+        <li><a href="/my_log" class="getstarted">Login</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<br>
+<br><br><br>
+<center>
+<h1>Diabetes Risk Calculation Results</h1>
+<p>Patient ID: {{ patient_data.patient_id }}</p>
+<p>Patient Risk Percentage for 05 Years: {{ "{:.2f}".format(patient_data.risk_1) }}%</p>
+<div id="gauge_chart" style="width: 300px; height: 200px;"></div>
+
+<script>
+    // Initialize the gauge chart
+    var gauge = new JustGage({
+        id: "gauge_chart",
+        value: {{ patient_data.risk_1 }},
+        min: 0,
+        max: 100,
+        title: "Percentage",
+        label: "%",
+    });
+</script>
+
+
+
+
+<br>
+<!-- Display other patient data fields as needed -->
+<h2>Diabetes Risk Calculation Results According to your symptoms</h2>
+
+<p>Risk Score: {{ risk_score }}</p>
+<p>Risk Percentage: {{ risk_percentage }}</p>
+
+<div id="gauge_chart4" style="width: 300px; height: 200px;"></div>
+
+<script>
+    // Get the risk percentage value from the template context
+    var riss = {{ risk_percentage }};
+    
+    // Initialize the gauge chart
+    var gauge = new JustGage({
+        id: "gauge_chart4",
+        value: riss,
+        min: 0,
+        max: 100,
+        title: "Percentage",
+        label: "%",
+    });
+</script>
+
+<p>Risk Level: {{ risk_level }}</p>
+
+<div class="recommendations">
+  <h3>Recommendations:</h3>
+  <ul>
+      {% for recommendation in patient_data.recommendations %}
+      <li>{{ recommendation }}</li>
+      {% endfor %}
+  </ul>
+</div>
+
+<button id="displayNearbyBtn">Display Nearby Doctors</button>
+
+<a href="/pdf" class="btn-get-started animate__animated animate__fadeInUp scrollto">Generate Detailed Report</a>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Select an Option</h3>
+    <a href="/manual" class="btn-get-started animate__animated animate__fadeInUp scrollto">Enter your current Location Manually</a>
+    <a href="/gps" class="btn-get-started animate__animated animate__fadeInUp scrollto">Locate you using GPS</a>
+  </div>
+</div>
+
+<div id="modalContent"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var modal = document.getElementById('myModal');
+    var displayBtn = document.querySelector('#displayNearbyBtn');
+    var closeBtn = document.querySelector('.close');
+    var modalContent = document.getElementById('modalContent');
+
+    displayBtn.addEventListener('click', function () {
+      modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    function loadContent(contentUrl) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', contentUrl, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          modalContent.innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+  });
+</script>
+
+
+</center>
+    <br>
+<br><br><br>
+
+ 
+
+<!-- Footer -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>SHMPS</h3>
+              <p>
+                Dowson Street <br>
+                Colombo 07, Sri Lanka<br><br>
+                <strong>Phone:</strong> +94 760918810<br>
+                <strong>Email:</strong> info@myshmps.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/twitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="/facebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="/instergram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="/google" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="linkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/disease">Diesease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictdiabetics">Diabetics Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictheart">Heart Disease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/insurance">Insurace Cost Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Stay Informed, Stay Healthy: Subscribe!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

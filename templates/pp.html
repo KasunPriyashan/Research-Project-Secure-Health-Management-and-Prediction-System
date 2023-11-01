@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SHMPS - Personalized Health Predictor</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/health.png" rel="icon">
+
+  <link href="assets/img/health.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+
+
+  <script src="https://static.elfsight.com/platform/platform.js"></script>
+
+  <script>
+    function redirectToUpload() {
+        // Redirect to the /uploadidf route
+        window.location.href = "/kyc"}
+    </script>
+ 
+</head>
+
+<body>
+
+<!-- Begining of the Form -->
+  <div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+
+      <form action="/uploadnic" method="POST" enctype="multipart/form-data">
+        <div class="formbold-form-title">
+          <center><h2 class="">KYC Verification</h2></center>
+          <center><p>
+            We prioritize your privacy and ensure all data shared is secure and confidential.
+          </p></center>
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="tobacco" class="formbold-form-label">
+          Please Enter Your NIC Number to Proceed in the KYC Process:
+          </label>
+          <input
+                  type="text"
+                  name="nic"
+                  id="nic"
+                  class="formbold-form-input"
+          />
+        </div>
+
+      <center><button class="formbold-btn" onclick="redirectToUpload()">Next</button></center>
+</form>
+
+</div>
+
+</body>
+
+</html>

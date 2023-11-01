@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Result - Initial Health Condition</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	</head>
+
+    <body>
+
+           <!-- Website Title -->
+		   <div>
+			<header>
+				<h1> SHMPS -Secure Health Management & Prediction System</h1>
+			</header>
+			</div>
+	
+			<div class="menubar">
+				<a class="active" href="home.html">Home</a>
+				 <a href="aboutus.html">Intial Health condtion Detector</a>
+				<a href="index2.html">Diabetes Predictor</a>
+				<a href="claimsinfo.html"> Heart Disease Predictor</a>
+				<a href="aboutus.html">Insurance Cost Predictor</a>
+				
+			  </div>
+			  <div class= pp>
+	<br><br><br>
+<br/>
+<center>
+		<!-- Result -->
+		<div class="results-container">
+
+			<h2 class="results-title">Prediction </h2>
+
+			<div class="result-item">
+			{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Danger, Condition is Unhelathy.</span></h1>
+			
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Great, Condition is Healthy.</span></h1>
+			
+			{% endif %}
+			</div>
+
+		</div>
+	</center>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+	&copy; 2023 SHMPS -Secure Health Management & Prediction System All rights reserved.
+  
+	</div>
+</footer>
+
+
+	</body>
+</html>

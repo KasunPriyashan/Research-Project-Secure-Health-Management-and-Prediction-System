@@ -1,0 +1,129 @@
+<!-- templates/retrieve.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Retrieval Page</title>
+</head>
+<body>
+
+
+    <!-- Display patient details if they exist -->
+    {% if patient %}
+    <h1> Full Details of  {{ patient.name }}  </h1>
+    <h3>Personal Details:</h3>
+    <p>Name: {{ patient.glucose }}</p>
+    <p>Age: {{ patient.Age }}</p>
+    <p>Height: {{ patient.height }}</p>
+    <p>BMI: {{ patient.BMI }}</p>
+    <p>Contact Number: {{ patient.phone_number }}</p>
+
+    <p>Test Levels</p> 
+    <p>Glucose Level: {{ patient.Glucose }}</p>
+    <p>Blood pressure: {{ patient.BloodPressure }}</p>
+    <p>No of pregnencies : {{ patient.Pregnancies}}</p>
+
+
+    <p>Life style of patient</p> 
+
+    <p>Tobbaco usage -No of Ciggarates per week : {{ patient.tobacco_usage }}</p>
+    <p>exercise hours per week {{ patient.exercise_hours_per_week }} hours</p>
+
+    <p>
+        Family History:
+        {% if patient.family_history == 1 %}
+          Person has diabetes family history
+        {% else %}
+          No diabetes family history
+        {% endif %}
+      </p>
+
+      <p>Diabetes Pedigree Function {{ patient.DiabetesPedigreeFunction }}</p> 
+
+
+      <p>Symptoms of patient</p> 
+
+      <p>
+        {% if patient.high_cholesterol == 1 %}
+        Person has high chilestrol
+        {% endif %}
+      </p>
+
+
+      <p>
+        {% if patient.increased_thirst_and_urination == 1 %}
+        Person has  increased thirst and urination
+
+        {% endif %}
+      </p>
+
+
+      <p>
+        {% if patient.increased_hunger == 1 %}
+        Person has increased_hunger
+        {% endif %}
+      </p>
+
+
+      <p>
+        {% if patient.weight_loss == 1 %}
+        Person has weight loss
+        {% endif %}
+      </p>
+
+
+      <p>
+        {% if patient.blurred_vision == 1 %}
+        Person has blurred vision
+        {% endif %}
+      </p>
+
+
+      <p>
+        {% if patient.slow_healing_sores_or_infections == 1 %}
+        Person has slow healing sores or infections
+        {% endif %}
+      </p>
+
+      
+      <p>
+        {% if patient.areas_of_darkened_skin == 1 %}
+        Person has areas of darkened skin
+        {% endif %}
+      </p>
+
+      <p>
+        {% if patient.chest_pain_during_exercise == 1 %}
+        Person has chest pain during exercise
+        {% endif %}
+      </p>
+
+      <p>
+        {% if patient.high_blood_pressure == 1 %}
+        Person has high blood pressure
+        {% endif %}
+      </p>
+
+      <p>
+        {% if patient.areas_of_darkened_skin == 1 %}
+        Person has areas of darkened skin
+        {% endif %}
+      </p>
+
+
+      <p>Predictions of SHMPS regarding this patient </p> 
+
+     
+      <p>Intial Health Condtion: {{ patient.initialhealthcondition }}</p> <br>
+      <p>Diabetes Results : {{ patient.result }}</p>
+
+      <p>Risk precentage for Diabetes for next 05 years is  : {{ patient.Risk_precen }}</p>
+      <p>Current Risk precentage for Diabetes   : {{ patient.risk_1 }}</p>
+      <p> Risk precentage for Diabetes according to symptoms  : {{ patient.sym_precentage}}</p>
+
+    <!-- Add other patient details as needed -->
+    {% endif %}
+</body>
+</html>

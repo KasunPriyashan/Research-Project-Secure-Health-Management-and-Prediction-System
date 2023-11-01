@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sailor Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+
+  <script>
+    function checkPasswordMatch() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("repassword").value;
+
+        if (password != confirmPassword) {
+            alert("Passwords do not match. Please try again.");
+        }
+    }
+  </script>
+
+</head>
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+
+    <!-- <h1 class="logo me-auto"><a href="index.html">Sailor</a></h1>-->
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="index.html" class="logo me-auto"><img src="{{ url_for('static', filename='assets/img//logo.png') }}" alt="" class="img-fluid"></a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/aboutus">About Us</a></li>
+        <li><a href="/disease">Diesease Prediction</a></li>
+        <li><a href="contact.html">Insurace Cost Prediction</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+        <li><a href="/regfrom" class="getstarted">Get Started</a></li>
+        <li><a href="/my_log" class="getstarted">Login</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+
+    <form action="/submitform" method="POST"  enctype="multipart/form-data">
+      <div class="formbold-form-title">
+        <center><h2 class="">Patient Registration</h2></center>
+        <center><p>
+          Simplify Your Healthcare Experience: Register as a Patient
+        </p></center>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="firstname" class="formbold-form-label">
+            First name
+          </label>
+          <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="lastname" class="formbold-form-label"> Last name </label>
+          <input
+                  type="text"
+                  name="lastname"
+                  id="lastname"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="address" class="formbold-form-label">
+          Full Name as NIC
+        </label>
+        <input
+                type="text"
+                name="nicName"
+                id="nicName"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="Sex" class="formbold-form-label"> Sex </label>
+          <select id="sex" name="sex" class="formbold-form-input">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        </div>
+
+        <div>
+        <label for="dob" class="formbold-form-label">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" class="formbold-form-input" required>
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="email" class="formbold-form-label"> Email </label>
+          <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="nic" class="formbold-form-label"> NIC Number </label>
+          <input
+                  type="text"
+                  name="nic"
+                  id="nic"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="password" class="formbold-form-label"> Password </label>
+          <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="repassword" class="formbold-form-label"> Re Enter Password </label>
+          <input
+                  type="password"
+                  name="repassword"
+                  id="repassword"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="address2" class="formbold-form-label">
+          Address as NIC
+        </label>
+        <input
+                type="text"
+                name="nicaddress"
+                id="nicaddress"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="district" class="formbold-form-label">Select District:</label>
+          <select id="district" name="district" class="formbold-form-input">
+            <option value="colombo">Colombo</option>
+            <option value="gampaha">Gampaha</option>
+            <option value="kalutara">Kalutara</option>
+            <option value="kandy">Kandy</option>
+            <option value="matale">Matale</option>
+            <option value="nuwaraeliya">Nuwara Eliya</option>
+            <option value="galle">Galle</option>
+            <option value="matara">Matara</option>
+            <option value="hambantota">Hambantota</option>
+            <option value="jaffna">Jaffna</option>
+            <option value="kilinochchi">Kilinochchi</option>
+            <option value="mannar">Mannar</option>
+            <option value="vavuniya">Vavuniya</option>
+            <option value="mulativu">Mulativu</option>
+            <option value="batticaloa">Batticaloa</option>
+            <option value="ampara">Ampara</option>
+            <option value="trincomalee">Trincomalee</option>
+            <option value="kurunegala">Kurunegala</option>
+            <option value="puttalam">Puttalam</option>
+            <option value="anuradhapura">Anuradhapura</option>
+            <option value="polonnaruwa">Polonnaruwa</option>
+            <option value="badulla">Badulla</option>
+            <option value="monaragala">Monaragala</option>
+            <option value="ratnapura">Ratnapura</option>
+            <option value="kegalle">Kegalle</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="city" class="formbold-form-label"> City </label>
+          <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="mobile" class="formbold-form-label"> Mobile Phone number </label>
+          <input
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="land" class="formbold-form-label"> Land Phone number </label>
+          <input
+                  type="text"
+                  name="land"
+                  id="land"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-checkbox-wrapper">
+        <label for="supportCheckbox" class="formbold-checkbox-label">
+          <div class="formbold-relative">
+            <input
+                    type="checkbox"
+                    id="supportCheckbox"
+                    class="formbold-input-checkbox"
+            />
+            <div class="formbold-checkbox-inner">
+              <span class="formbold-opacity-0">
+                <svg
+                        width="11"
+                        height="8"
+                        viewBox="0 0 11 8"
+                        fill="none"
+                        class="formbold-stroke-current"
+                >
+                  <path
+                          d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                          stroke-width="0.4"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+          I agree to the defined
+          <a href="#"> terms, conditions, and policies</a>
+        </label>
+      </div>
+
+      <center><button type="submit" class="formbold-btn">Register Now</button></center>
+    </form>
+  </div>
+</div>
+</div>
+
+ <!-- Footer -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>SHMPS</h3>
+              <p>
+                Dowson Street <br>
+                Colombo 07, Sri Lanka<br><br>
+                <strong>Phone:</strong> +94 760918810<br>
+                <strong>Email:</strong> info@myshmps.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/disease">Diesease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictdiabetics">Diabetics Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictheart">Heart Disease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/insurance">Insurace Cost Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Stay Informed, Stay Healthy: Subscribe!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>

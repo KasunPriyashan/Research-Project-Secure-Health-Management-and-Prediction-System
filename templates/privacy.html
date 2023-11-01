@@ -1,0 +1,261 @@
+
+
+
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>SHMPS - Personalized Health Predictor</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+    
+      <!-- Favicons -->
+      <link href="assets/img/health.png" rel="icon">
+      <link href="assets/img/health.png" rel="apple-touch-icon">
+    
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+    
+      <!-- Template Main CSS File -->
+      <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+
+      <script src="https://static.elfsight.com/platform/platform.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <style>
+    
+      .privacy-header {
+          font-size: 28px;
+          color: #4CAF50;
+          text-align: center;
+      }
+      .privacy-paragraph {
+          font-size: 18px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+      }
+      .privacy-list {
+          list-style-type: disc;
+          margin-left: 20px;
+      }
+      .privacy-subheader {
+          font-size: 24px;
+          color: #4CAF50;
+          margin-top: 30px;
+      }
+      /* Add more custom styles as needed */
+  </style>
+    </head>
+    
+    <body>
+    
+   
+        
+      <h1 class="privacy-header">Privacy Policy</h1>
+
+      <p class="privacy-paragraph">This Privacy Policy describes how we collect, use, and disclose your personal information when you use our website. By accessing or using our website, you consent to the practices described in this Privacy Policy.</p>
+  
+      <h2 class="privacy-subheader">Information We Collect</h2>
+  
+      <p class="privacy-paragraph">We may collect various types of information, including but not limited to:</p>
+  
+      <ul class="privacy-list">
+          <li>Your name, email address, and contact information.</li>
+          <li>Information about your device, browser, and how you use our website.</li>
+          <li>Cookies and similar tracking technologies to improve your experience.</li>
+      </ul>
+  
+      <h2 class="privacy-subheader">How We Use Your Information</h2>
+  
+      <p class="privacy-paragraph">We use the collected information for various purposes, including:</p>
+  
+      <ul class="privacy-list">
+          <li>Improving and customizing your experience on our website.</li>
+          <li>Communicating with you and responding to your inquiries.</li>
+          <li>Analytics and research to understand how our website is used.</li>
+      </ul>
+  
+      <h2 class="privacy-subheader">Disclosure of Your Information</h2>
+  
+      <p class="privacy-paragraph">We may share your information with third parties in the following cases:</p>
+  
+      <ul class="privacy-list">
+          <li>With your consent.</li>
+          <li>For legal purposes or to comply with a legal obligation.</li>
+          <li>With service providers and partners who assist us in providing our services.</li>
+      </ul>
+  
+      <h2 class="privacy-subheader">Security</h2>
+  
+      <p class="privacy-paragraph">We take reasonable measures to protect your personal information, but no method of transmission over the internet or electronic storage is completely secure.</p>
+  
+      <h2 class="privacy-subheader">Changes to this Privacy Policy</h2>
+  
+      <p class="privacy-paragraph">We may update this Privacy Policy from time to time. Any changes will be posted on this page with the updated date.</p>
+  
+      <h2 class="privacy-subheader">Contact Us</h2>
+  
+      <p class="privacy-paragraph">If you have any questions or concerns about this Privacy Policy, please contact us at [your email address].</p>
+  
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>SHMPS</h3>
+              <p>
+                Dowson Street <br>
+                Colombo 07, Sri Lanka<br><br>
+                <strong>Phone:</strong> +94 760918810<br>
+                <strong>Email:</strong> info@myshmps.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/twitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="/facebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="/instergram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="/google" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="linkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/disease">Diesease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictdiabetics">Diabetics Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictheart">Heart Disease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/insurance">Insurace Cost Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Stay Informed, Stay Healthy: Subscribe!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

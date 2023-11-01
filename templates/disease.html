@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SHMPS - Personalized Health Predictor</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/health.png" rel="icon">
+  <link href="assets/img/health.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+
+  <script src="{{ url_for('static', filename='assets/css/input.js') }}"></script>
+
+
+
+  <script src="https://static.elfsight.com/platform/platform.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center">
+    
+        <!-- <h1 class="logo me-auto"><a href="index.html">Sailor</a></h1>-->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html" class="logo me-auto"> <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="" class="img-fluid"></a>
+    
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+    
+            <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+              </ul>
+            </li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="/disease">Diesease Prediction</a></li>
+            <li><a href="/insurance">Insurace Cost Prediction</a></li>
+            <li><a href="/contactus">Contact Us</a></li>
+            <li><a href="/regform" class="getstarted">Get Started</a></li>
+            <li><a href="/my_log" class="getstarted">Login</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+    
+      </div>
+    </header>
+    
+    <!-- End Header -->
+
+<!-- Begining of the Form -->
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+
+    <form action="/submit" method="POST"  enctype="multipart/form-data">
+      <div class="formbold-form-title">
+        <center><h2 class="">Disease Prediction</h2></center>
+        <center><p>
+          Simplify Your Healthcare Experience
+        </p></center>
+      </div>
+
+      <div class="formbold-mb-3">
+        <div>
+          <label for="dis" class="formbold-form-label"> Disease to be Predicted: </label>
+          <select id="dis" name="dis" class="formbold-form-input" onchange="toggleInput1()">
+            <option value="--">--</option>
+            <option value="both">Both</option>
+            <option value="diabetics">Diabetic Prediction</option>
+            <option value="heart">Heart Disease Prediction</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="nic" class="formbold-form-label">
+            NIC
+          </label>
+          <input
+                  type="text"
+                  name="nic"
+                  id="nic"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="name" class="formbold-form-label">
+            Full Name
+          </label>
+          <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+<br>
+      <div class="formbold-input-flex">
+        <div>
+          <label for="age" class="formbold-form-label"> Age </label>
+          <input
+                  type="text"
+                  name="age"
+                  id="age"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+        <label for="excercise" class="formbold-form-label">
+          Mobile Number (Format:9476xxxxxxx)
+        </label>
+        <input
+                type="text"
+                name="number"
+                id="number"
+                class="formbold-form-input"
+        />
+      </div>
+    </div>
+
+      <div class="formbold-input-flex">
+        <div id="malefemalecontainer">
+          <label for="gender" class="formbold-form-label"> Sex </label>
+          <select id="gender" name="gender" class="formbold-form-input" onchange="toggleInput()">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="district" class="formbold-form-label">Select District:</label>
+          <select id="district" name="district" class="formbold-form-input">
+            <option value="colombo">Colombo</option>
+            <option value="gampaha">Gampaha</option>
+            <option value="kalutara">Kalutara</option>
+            <option value="kandy">Kandy</option>
+            <option value="matale">Matale</option>
+            <option value="nuwaraeliya">Nuwara Eliya</option>
+            <option value="galle">Galle</option>
+            <option value="matara">Matara</option>
+            <option value="hambantota">Hambantota</option>
+            <option value="jaffna">Jaffna</option>
+            <option value="kilinochchi">Kilinochchi</option>
+            <option value="mannar">Mannar</option>
+            <option value="vavuniya">Vavuniya</option>
+            <option value="mulativu">Mulativu</option>
+            <option value="batticaloa">Batticaloa</option>
+            <option value="ampara">Ampara</option>
+            <option value="trincomalee">Trincomalee</option>
+            <option value="kurunegala">Kurunegala</option>
+            <option value="puttalam">Puttalam</option>
+            <option value="anuradhapura">Anuradhapura</option>
+            <option value="polonnaruwa">Polonnaruwa</option>
+            <option value="badulla">Badulla</option>
+            <option value="monaragala">Monaragala</option>
+            <option value="ratnapura">Ratnapura</option>
+            <option value="kegalle">Kegalle</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="weight" class="formbold-form-label"> Weight(Kg) </label>
+          <input
+                  type="text"
+                  name="weight"
+                  id="weight"
+                  class="formbold-form-input"
+          />
+        </div>
+        <div>
+          <label for="height" class="formbold-form-label"> Height(cm) </label>
+          <input
+                  type="text"
+                  name="height"
+                  id="height"
+                  class="formbold-form-input"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+          <div>
+            <label for="occupation" class="formbold-form-label">Physical Activeness based on Occupation</label>
+            <select id="occupation" name="occupation" class="formbold-form-input">
+              <option value="1">Sedentary(Involve sitting for most of the workday and little physical activity)</option>
+              <option value="2">Lightly Active(Involve some movement and standing)</option>
+              <option value="3">Moderately Active(Involve regular physical activity and movement)</option>
+              <option value="4">Very Active(Involve constant physical exertion, heavy lifting, and strenuous activity)</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="tobacco" class="formbold-form-label">
+          No of Ciggerates used within a week:
+        </label>
+        <input
+                type="text"
+                name="tobacco"
+                id="tobacco"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-mb-3">
+        <div>
+          <label for="exercisetype" class="formbold-form-label">Type of Exercise: </label>
+          <select id="exercisetype" name="exercisetype" class="formbold-form-input">
+            <option value="1">Aerobic or Cardiovascular Exercises (Running, Cycling, Swimming</option>
+            <option value="2">Strength Training or Resistance Exercises (Weightlifting)</option>
+            <option value="3">Flexibility and Stretching Exercises (Yoga, Pilates)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <div>
+          <label for="alcohol" class="formbold-form-label">Type of Alcohol Intake: </label>
+          <select id="alcohol" name="alcohol" class="formbold-form-input">
+            <option value="1">Abstainer</option>
+            <option value="2">Light Drinker</option>
+            <option value="3">Moderate Drinker</option>
+            <option value="4">Heavy Drinker</option>
+            <option value="5">Binge Drinker</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="excercise" class="formbold-form-label">
+          No of Hours spent doing excercise within a week:
+        </label>
+        <input
+                type="text"
+                name="excercise"
+                id="excercise"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-mb-3" id="femaleInputContainer">
+        <label for="pregnancy" class="formbold-form-label">
+          How many times you have got pregnant:
+        </label>
+        <input
+                type="text"
+                name="pregnancy"
+                id="pregnancy"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="pressure" class="formbold-form-label">
+          Blood Pressure Level(mmHg):
+        </label>
+        <input
+                type="text"
+                name="pressure"
+                id="pressure"
+                class="formbold-form-input"
+        />
+      </div>
+
+      <div class="formbold-mb-3" id="sugarpreg">
+      <div>
+        <label for="sugarpreg" class="formbold-form-label">
+          Have you ever been found to have high blood glucose (sugar) during pregnancy?
+        </label>
+        <select id="sugarpreg" name="sugarpreg" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+      <div class="formbold-mb-3" id="chestpain1">
+        <div>
+          <label for="chestpain1" class="formbold-form-label">
+            Do you feel any squeezing or pressure in your chest, especially when running or playing?
+          </label>
+          <select id="chestpain1" name="chestpain1" class="formbold-form-input">
+            <option value="0">No, I have not</option>
+            <option value="1">Yes, I have</option>
+          </select>
+        </div>
+      </div>
+
+
+    <div class="formbold-mb-3" id="chestpain2">
+      <div>
+        <label for="chestpain2" class="formbold-form-label">
+          Do you feel a sharp pain in your chest that comes and goes quickly?
+        </label>
+        <select id="chestpain2" name="chestpain2" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+
+  <div class="formbold-mb-3" id="chestpain3">
+    <div>
+      <label for="chestpain3" class="formbold-form-label">
+        Do you feel any other pain in your chest that doesn't feel like squeezing or sharp pain?
+      </label>
+      <select id="chestpain3" name="chestpain3" class="formbold-form-input">
+        <option value="0">No, I have not</option>
+        <option value="1">Yes, I have</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="formbold-mb-3" id="chestpain4">
+  <div>
+    <label for="chestpain4" class="formbold-form-label">
+      Are there times when your chest doesn't hurt at all?
+    </label>
+    <select id="chestpain4" name="chestpain4" class="formbold-form-input">
+      <option value="0">No, I have not</option>
+      <option value="1">Yes, I have</option>
+    </select>
+    </div>
+   </div>
+
+
+    <div class="formbold-mb-3" id="family1">
+      <div>
+        <label for="family1" class="formbold-form-label">
+          Have either of your parents, or any of your brothers or sisters, been diagnosed with diabetes?
+        </label>
+        <select id="family1" name="family1" class="formbold-form-input">
+            <option value="0">No, they have not</option>
+            <option value="1">Yes, they have</option>
+        </select>
+      </div>
+    </div>
+  
+    
+
+    <div class="formbold-mb-3">
+      <label for="first_degree" class="formbold-form-label">
+          Enter number of first degree relatives with diabetes (parents, siblings, children):
+      </label>
+      <input type="number" name="first_degree" id="first_degree" class="formbold-form-input" required />
+  </div>
+  
+  <div class="formbold-mb-3">
+      <label for="second_degree" class="formbold-form-label">
+          Enter number of second degree relatives with diabetes (grandparents, uncles, aunts):
+      </label>
+      <input type="number" name="second_degree" id="second_degree" class="formbold-form-input" required />
+  </div>
+  
+  <div class="formbold-mb-3">
+      <label for="third_degree" class="formbold-form-label">
+          Enter number of third degree relatives with diabetes (cousins):
+      </label>
+      <input type="number" name="third_degree" id="third_degree" class="formbold-form-input" required />
+  </div>
+  
+
+    <div class="formbold-mb-3" id="thirst">
+      <div>
+        <label for="thirst" class="formbold-form-label">
+          Do you find yourself feeling thirstier than usual and needing to urinate more frequently?
+        </label>
+        <select id="thirst" name="thirst" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="choles">
+      <div>
+        <label for="choles" class="formbold-form-label">
+          Have you experienced High cholestrol?
+        </label>
+        <select id="choles" name="choles" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="high">
+      <div>
+        <label for="high" class="formbold-form-label">
+          Have you experienced High Blood pressure?
+        </label>
+        <select id="high" name="high" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="life">
+      <div>
+        <label for="high" class="formbold-form-label">
+          Do you exercise or do physical activities at least 5 hours for a week?
+        </label>
+        <select id="life" name="life" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="hunger">
+      <div>
+        <label for="hunger" class="formbold-form-label">
+          Have you noticed an increase in your appetite and a stronger feeling of hunger lately?
+        </label>
+        <select id="hunger" name="hunger" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="wloss">
+      <div>
+        <label for="wloss" class="formbold-form-label">
+          Have you experienced any noticeable weight loss without intentionally trying to lose weight?
+        </label>
+        <select id="wloss" name="wloss" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="tired">
+      <div>
+        <label for="tired" class="formbold-form-label">
+          Are you feeling unusually tired and lacking energy, even after getting adequate rest?
+        </label>
+        <select id="tired" name="tired" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="vision">
+      <div>
+        <label for="vision" class="formbold-form-label">
+          Have you been having trouble with your vision, such as things appearing blurry or unclear?
+        </label>
+        <select id="vision" name="vision" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="hea">
+      <div>
+        <label for="heal" class="formbold-form-label">
+          Have you noticed that cuts, sores, or infections seem to be taking longer than usual to heal?
+        </label>
+        <select id="heal" name="heal" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="dark">
+      <div>
+        <label for="dark" class="formbold-form-label">
+          Have you observed any patches of your skin becoming darker in certain areas?
+        </label>
+        <select id="dark" name="dark" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="formbold-mb-3" id="chest">
+      <div>
+        <label for="chest" class="formbold-form-label">
+          Do you experience chest pain during exercise?
+        </label>
+        <select id="chest" name="chest" class="formbold-form-input">
+          <option value="0">No, I have not</option>
+          <option value="1">Yes, I have</option>
+        </select>
+      </div>
+    </div>
+
+      <center><button type="submit" class="formbold-btn">Prediction</button></center>
+    </form>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-info">
+            <h3>SHMPS</h3>
+            <p>
+              Dowson Street <br>
+              Colombo 07, Sri Lanka<br><br>
+              <strong>Phone:</strong> +94 760918810<br>
+              <strong>Email:</strong> info@myshmps.com<br>
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Diabetics Prediction</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Heart Disease Prediction</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Insurace Cost Prediction</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Stay Informed, Stay Healthy: Subscribe!</p>
+          <form action="" method="post">
+            <input type="email" name="email"><input type="submit" value="Subscribe">
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

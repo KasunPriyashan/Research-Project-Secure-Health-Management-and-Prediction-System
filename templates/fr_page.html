@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SHMPS - Personalized Health Predictor</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+
+  <script src="{{ url_for('static', filename='assets/css/input.js') }}"></script>
+
+  <script src="https://static.elfsight.com/platform/platform.js"></script>
+  {% include "head.html" %}
+
+</head>
+
+
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+    <a href="{{ url_for('home') }}" class="logo me-auto"><img src="{{ url_for('static', filename='assets/img//logo.png') }}" alt="" class="img-fluid"></a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/aboutus">About Us</a></li>
+        <li><a href="/disease">Diesease Prediction</a></li>
+        <li><a href="/insurance">Insurace Cost Prediction</a></li>
+        <li><a href="/contactus">Contact Us</a></li>
+        <li><a href="/regfrom" class="getstarted">Get Started</a></li>
+        <li><a href="/my_log" class="getstarted">Login</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+  </div>
+</header>
+<!-- End Header -->
+
+<body >
+ 
+ 
+<div class="container-fluid">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-8">
+            <img src="{{ url_for('video_feed') }}" width="100%" class="img-thumbnail">
+        </div>
+        <br><br><br><br>
+        <div class="col-md-4" style="height:500px; overflow-y:auto;">
+            <h1>Verification Status</h1>
+            <p id="verificationStatus"></p>
+
+            <form action="/verifyID" method="GET">
+                Enter ID: <input type="text" name="input_id" style="padding: 0px; border: 1px solid #ccc; border-radius: 3px;" required>
+                <button type="submit" style="padding: 5px 10px; background-color: #38d78d; color: #fff; border: none; border-radius: 3px; cursor: pointer;">Verify</button>
+            </form>
+            <p id="verification-result"></p>
+            <script>
+                document.querySelector('form').addEventListener('submit', async function (event) {
+                    event.preventDefault();
+                    const inputId = document.querySelector('input[name="input_id"]').value;
+                    const response = await fetch(`/verifyID/${inputId}`);
+                    const data = await response.json();
+                    const verificationResult = data.message;
+                    document.getElementById('verification-result').textContent = verificationResult;
+                    
+                    
+                    if (verificationResult === "Verification Successful") {
+                            document.getElementById('admin-dashboard-button').style.display = 'block';
+                    }
+                });
+            </script>
+
+            <form name="signup" id ="form" onsubmit="return checkpassword()" action="http://localhost/dash.html" method="POST">
+                
+    <br><br>
+    <input type="submit" name="admin-dashboard" id="admin-dashboard-button" value="Admin Dashboard" style="display: none; margin: 0 auto; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;">
+
+  </form> 
+</body>
+
+
+</html>
+

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- For google icons  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <title>Login form</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+    }
+
+    .background {
+      background: url('file:///D:/New%20folder%20(4)/Progress/static/assets/img/p.png') rgba(141, 136, 197, 0.61);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-blend-mode: darken;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      min-height: 800px;
+    }
+
+    .container {
+      display: flex;
+      background-color: rgb(238, 238, 248); /* Light blue with opacity */
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 500px;
+      margin: 10vh auto;
+      box-shadow: 0 0 35px rgb(17, 16, 16);
+      border-radius: 25px;
+      color: black; /* Text color */
+    }
+
+    h2 {
+      font-size: 30px;
+    }
+
+    form {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 85%;
+    }
+
+    .form-item {
+      display: flex;
+      width: 90%;
+      background: transparent;
+      margin: 10px auto;
+      border-radius: 15px;
+      align-items: center;
+      border-bottom: 1px solid rgb(82, 81, 81);
+    }
+
+    .form-item:hover {
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    input::placeholder {
+        color: rgb(15, 3, 3); /* You can replace this with any color you prefer */
+      }
+      
+    input {
+      background: transparent;
+      width: 80%;
+      height: 30px;
+      outline: none;
+      border: none;
+      margin: auto;
+      color: rgb(138, 55, 55);
+      font-size: 17px;
+    }
+
+    span {
+      user-select: none;
+      margin: 5px;
+      color: rgb(172, 172, 172);
+      background: rgba(85, 81, 81, 0.637);
+      padding: 5px;
+      border-radius: 18px;
+    }
+
+    button[type="submit"] {
+      width: 180px;
+      font-size: 20px;
+      margin: 10px auto;
+      padding: 8px;
+      background: rgba(153, 41, 245, 0.72);
+      border: none;
+      color: white;
+      border-radius: 20px;
+    }
+
+    button[type="submit"]:hover {
+      background: rgba(60, 205, 91, 0.678);
+    }
+
+    p:first-of-type {
+      margin: 0;
+    }
+
+    .options {
+      display: flex;
+      margin: 10px auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 5px 16px;
+      margin: 5px 15px;
+      width: 180px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      transition: all 0.7s ease;
+    }
+
+    .fb:hover {
+      background: rgba(55, 53, 207, 0.637);
+      border: none;
+      box-shadow: 0 0 2px rgba(55, 53, 207, 0.637);
+    }
+
+    .gl:hover {
+      background: rgba(207, 53, 53, 0.671);
+      border: none;
+      box-shadow: 0 0 2px rgba(207, 53, 53, 0.671);
+    }
+
+    p {
+      font-size: 18px;
+      margin: 5px;
+    }
+
+    a {
+      color: white;
+    }
+
+    a:hover {
+      color: grey;
+    }
+
+    @media screen and (max-width: 550px) {
+      .container {
+        width: 90%;
+      }
+    }
+    #create-account-btn {
+        font-size: 16px; 
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 10px 10px 10px;
+        max-width: 300px;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      #create-account-btn:hover {
+        background-color: #0056b3;
+      }
+      
+  </style>
+</head>
+
+<body>
+
+  <!-- for background -->
+  <div class="background"></div>
+
+  <!-- for form container -->
+  <div class="container">
+    <img src="file:///D:/New%20folder%20(4)/Progress/static/assets/img/login.png" style="display: block; margin: 0 auto; width: 150px; height: 150px;">   
+
+    <h2>SHMPS Admin Login</h2>
+    <form action="/admin.php" name="login" id ="form" method="POST" onsubmit="return form()">
+
+      <div class="form-item">
+        <span class="material-icons-outlined">
+          account_circle
+        </span>
+        <input type="text" name="user" id="user" placeholder="Email Address">
+      </div>
+
+      <div class="form-item">
+        <span class="material-icons-outlined">
+          lock
+        </span>
+        <input type="password" name="pass" id="pass" placeholder="password">
+      </div>
+      <div class="formbold-forgot-password">
+        <a href="#" style="font-size: 14px; color: #050505;">Forgot Password?</a>
+      </div> <br>
+
+      <button type="submit" name="log" value="Log in"  id= "submit" onclick="Validate(document.login.username)">LOGIN</button> 
+
+     
+
+      <br>
+
+      <p style="font-size: 12px; color: #333;">
+        If you don't have an account <button id="create-account-btn" style="font-size: 14px; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer; padding: 8px 16px;">Create an Account</button>
+      </p>
+    </form>
+  </div>
+</body>
+
+</html>

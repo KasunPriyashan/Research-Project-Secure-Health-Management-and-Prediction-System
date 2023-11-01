@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    
+   
+</head>
+<body>
+    <header>
+        <h1> SHMPS -Secure Health Management & Prediction System</h1>
+    </header>
+    <div class="menubar">
+
+  <a class="active" href="home.html">Home</a>
+   <a href="aboutus.html">Intial Health condtion Detector</a>
+  <a href="index2.html">Diabetes Predictor</a>
+  <a href="claimsinfo.html"> Heart Disease Predictor</a>
+  <a href="aboutus.html">Insurance Cost Predictor</a>
+  
+</div> 
+   
+<h2 style="text-align: center;">Prediction Result</h2>
+<p style="text-align: center;">{{ result }}</p>
+<div class="results">
+			{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Oops! You have Heart Attack TAKE CARE!.</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='diabetes.webp') }}" alt="Diabetes Image">
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Great! You DON'T have Heart disease.</span></h1>
+				<img class="gif1" src="{{ url_for('static', filename='no-diabetes.webp') }}" alt="Not Diabetes Image">
+			{% endif %}
+		</div> 
+   
+   <br>
+    <br>
+    <br>
+   
+     <br>
+      <br>
+       <br>
+       
+       
+      <footer>
+        &copy; 2023 SHMPS -Secure Health Management & Prediction System All rights reserved.
+      
+        </div>
+    </footer>
+    
+</body>
+</html>

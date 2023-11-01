@@ -1,0 +1,23 @@
+<!-- templates/request.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Request Page</title>
+</head>
+<body>
+    <h2>Request Patient Details</h2>
+    <form action="/request_patient_details" method="post">
+        <label for="patient_id">Select Patient:</label>
+        <select name="patient_id" id="patient_id">
+            <!-- This should be populated dynamically with patient data from the database -->
+            <option value="patient1">2022</option>
+            <!-- ... other patients -->
+        </select>
+        <input type="hidden" name="doctor_id" value="doctor1"> <!-- Assuming a single doctor for simplicity -->
+        <input type="submit" value="Request Details">
+    </form>
+</body>
+</html>

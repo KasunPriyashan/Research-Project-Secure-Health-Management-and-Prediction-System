@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KYC Verfication</title>
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/progress.css') }}" rel="stylesheet">
+
+    <script src="assets/js/progress.js"></script>
+
+  <script>
+    function redirectToUpload() {
+        // Redirect to the /uploadidf route
+        window.location.href = "/idfront";
+    }
+
+    window.onload = function() {
+      var message = "{{ message }}";
+      alert(message);
+      window.history.back(); // Redirect back to the previous page after showing the alert
+  }
+  </script>
+
+</head>
+<body>
+<h1><center>KYC Verfication</center></h1>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<h2 class="text-center">Step 03: Back Photo of NIC/Driving License</h2>
+
+
+<center><video id="camera-feed" autoplay></video><br></center>
+<center><button class="formbold-btn" id="capture-btn">Capture Photo</button></center>
+<center><form action="compare_images" method="POST" enctype="multipart/form-data"> <button class="formbold-btn" >Finish</button> </form></center>
+<canvas id="captured-image" style="display:none;"></canvas>
+<br>
+<br>
+
+<script>
+        const cameraFeed = document.getElementById("camera-feed");
+        const captureBtn = document.getElementById("capture-btn");
+        const capturedImageCanvas = document.getElementById("captured-image");
+
+        // Get access to the user's camera
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+                cameraFeed.srcObject = stream;
+            } catch (error) {
+                console.error("Error accessing camera:", error);
+            }
+        }
+
+        // Capture the image from the camera feed
+        captureBtn.addEventListener("click", () => {
+            const context = capturedImageCanvas.getContext("2d");
+            context.drawImage(cameraFeed, 0, 0, capturedImageCanvas.width, capturedImageCanvas.height);
+
+            // Convert the canvas to Blob
+            capturedImageCanvas.toBlob(uploadImageToServer, "image/jpeg");
+        });
+
+        // Start the camera when the page loads
+        window.onload = startCamera;
+
+        async function uploadImageToServer(blob) {
+            const formData = new FormData();
+            formData.append("image", blob, "captured_image.jpg");
+
+            try {
+                const response = await fetch("/uploadidb", {
+                    method: "POST",
+                    body: formData,
+                });
+                const result = await response.text();
+                alert(result);
+            } catch (error) {
+                console.error("Error uploading image:", error);
+            }
+        }
+    </script>
+</body>
+</html>

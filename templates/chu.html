@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>SHMPS - Personalized Health Predictor</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+    
+      <!-- Favicons -->
+      <link href="assets/img/health.png" rel="icon">
+      <link href="assets/img/health.png" rel="apple-touch-icon">
+    
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+<link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+
+    
+      <!-- Template Main CSS File -->
+      <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+
+      <script src="https://static.elfsight.com/platform/platform.js"></script>
+    
+    
+      <!-- =======================================================
+      * Template Name: Sailor
+      * Updated: May 30 2023 with Bootstrap v5.3.0
+      * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+      * Author: BootstrapMade.com
+      * License: https://bootstrapmade.com/license/
+      ======================================================== -->
+
+<br>
+<br><br><br><br><br><br>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insure Now Form</title>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+      background-image: url("{{ url_for('static', filename='assets/img/bghealth.jpg') }}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f9;
+  }
+  .formbold-main-wrapper {
+    padding: 30px;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .formbold-mb-3 {
+    margin-bottom: 15px;
+  }
+  .formbold-relative {
+    position: relative;
+  }
+  .formbold-opacity-0 {
+    opacity: 0;
+  }
+  .formbold-stroke-current {
+    stroke: currentColor;
+  }
+  #supportCheckbox:checked ~ div span {
+    opacity: 1;
+  }
+  .formbold-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-top: 20px; /* Add padding from the top */
+  }
+  .formbold-img img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .formbold-form-title {
+    margin-bottom: 30px;
+  }
+  .formbold-form-title h2 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #07074d;
+  }
+  .formbold-form-title p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+    margin-top: 12px;
+  }
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+  }
+  .formbold-form-input {
+    text-align: center;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  .formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .formbold-checkbox-label {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+  }
+  .formbold-checkbox-label a {
+    margin-left: 5px;
+    color: #6a64f1;
+  }
+  .formbold-input-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .formbold-checkbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-top: 2px;
+    border: 0.7px solid #dde3ec;
+    border-radius: 3px;
+  }
+  .formbold-btn {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  button[type="submit"] {
+      border-radius: 12px; /* Rounded corners */
+      background-color: rgb(137, 137, 138); /* Color before clicking */
+      color: white;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease; /* Transition effect */
+    }
+
+    button[type="submit"]:active {
+      background-color: green; /* Color after clicking */
+    }
+</style>
+
+</head>
+<body>
+
+   <!-- ======= Header ======= -->
+   <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+  
+      <!-- <h1 class="logo me-auto"><a href="index.html">Sailor</a></h1>-->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo me-auto"> <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="" class="img-fluid"></a>
+  
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+  
+          <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/aboutus">About Us</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="/disease">Diesease Prediction</a></li>
+          <li><a href="/insurance">Insurace Cost Prediction</a></li>
+          <li><a href="/contactus">Contact Us</a></li>
+          <li><a href="/regform" class="getstarted">Get Started</a></li>
+          <li><a href="/my_log" class="getstarted">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+  
+    </div>
+  </header>
+  
+  <!-- End Header -->
+
+
+<br>
+<br>
+<div class="form-container">
+    <div class="formbold-main-wrapper">
+        <form action="/submitinsu" method="POST">
+            <div class="formbold-form-title">
+                <h2 class="">Insure now</h2>
+                <p>
+                    Healthcare insurance is vital for individuals, safeguarding against unexpected medical expenses, ensuring access to quality care, and promoting overall well-being.
+                </p>
+            </div>
+
+            <div class="formbold-input-flex">
+              <div>
+                <label for="id" class="formbold-form-label">
+                    Patient ID
+                </label>
+                <input
+                        type="number"
+                        name="id"
+                        id="id"
+                        class="formbold-form-input"
+                />
+            </div>
+                <div>
+                    <label for="age" class="formbold-form-label">
+                        Age
+                    </label>
+                    <input
+                            type="number"
+                            name="age"
+                            id="age"
+                            class="formbold-form-input"
+                    />
+                </div>
+                <div>
+                    <label class="formbold-form-label">Gender</label>
+                    <input type="radio" name="gender" value="1"> Male
+                    <br>
+                    <input type="radio" name="gender" value="0"> Female
+                </div>
+                <div>
+                  <label for="phone" class="formbold-form-label">
+                      Contact Number
+                  </label>
+                  <input
+                          type="tel"
+                          name="phone_number"
+                          id="phone_number"
+                          class="formbold-form-input"
+                  />
+              </div>
+            </div>
+
+            <div class="formbold-input-flex">
+                <div>
+                    <label for="bmi" class="formbold-form-label">BMI</label>
+                    <input
+                            type="number"
+                            name="bmi"
+                            id="bmi"
+                            class="formbold-form-input"
+                    />
+                </div>
+                <div>
+                    <label for="child" class="formbold-form-label"> No.of Children</label>
+                    <input
+                            type="number"
+                            name="child"
+                            id="child"
+                            class="formbold-form-input"
+                    />
+                </div>
+            </div>
+
+            <div class="formbold-mb-3">
+                <label class="formbold-form-label">
+                    Do you use any kind of Tobacco?
+                </label>
+                <input type="radio" name="tob" value="1"> Yes
+                <br>
+                <input type="radio" name="tob" value="0"> No
+            </div>
+
+            <div class="formbold-mb-3">
+                <label class="formbold-form-label">
+                    Occupation
+                </label>
+                <select name="occupation" id="occupation">
+                    <option value="0">Actor/Actress</option>
+                    <option value="1">Teacher</option>
+                    <option value="2">Salesperson</option>
+                    <option value="3">Construction worker</option>
+                    <option value="4">Human resources manager</option>
+                    <option value="5">Architect</option>
+                    <option value="6">Tailor</option>
+                    <option value="7">Librarian</option>
+                    <option value="8">Entrepreneur</option>
+                    <option value="9">Carpenter</option>
+                    <option value="10">Journalist</option>
+                    <option value="11">Hotel manager</option>
+                    <option value="12">Social worker</option>
+                    <option value="13">Artist</option>
+                    <option value="14">Banker</option>
+                    <option value="15">Scientist</option>
+                    <option value="16">Event planner</option>
+                    <option value="17">Economist</option>
+                    <option value="18">Mechanic</option>
+                    <option value="19">Financial analyst</option>
+                    <option value="20">Lawyer</option>
+                    <option value="21">Retired</option>
+                    <option value="22">Marketing executive</option>
+                    <option value="23">Pharmacist</option>
+                    <option value="24">Consultant</option>
+                    <option value="25">Driver</option>
+                    <option value="26">Veterinarian</option>
+                    <option value="27">Government officer</option>
+                    <option value="28">Researcher</option>
+                    <option value="29">Doctor</option>
+                    <option value="30">Psychologist</option>
+                    <option value="31">NGO worker</option>
+                    <option value="32">Software developer</option>
+                    <option value="33">Receptionist</option>
+                    <option value="34">Musician</option>
+                    <option value="35">Tour guide</option>
+                    <option value="36">Engineer</option>
+                    <option value="37">Accountant</option>
+                    <option value="38">Electrician</option>
+                    <option value="39">Photographer</option>
+                    <option value="40">Fashion designer</option>
+                    <option value="41">Businessperson</option>
+                    <option value="42">IT professional</option>
+                    <option value="43">Flight attendant</option>
+                    <option value="44">Nurse</option>
+                    <option value="45">Graphic designer</option>
+                    <option value="46">Police officer</option>
+                    <option value="47">Professor</option>
+                    <option value="48">Chef</option>
+                    <option value="49">Farmer</option>
+                    <option value="50">Athlete</option>
+                </select>
+            </div>
+            <div class="formbold-input-flex">
+                <div>
+                    <label class="formbold-form-label">Do you have any heart issue?</label>
+                    <input type="radio" name="heart_issue" value="1"> Yes
+                    <br>
+                    <input type="radio" name="heart_issue" value="0"> No
+                </div>
+                <div>
+                    <label class="formbold-form-label">Do you have Diabetics situation?</label>
+                    <input type="radio" name="diabetics" value="1"> Yes
+                    <br>
+                    <input type="radio" name="diabetics" value="0"> No
+                </div>
+            </div>
+
+            <div class="formbold-checkbox-wrapper">
+                <label for="supportCheckbox" class="formbold-checkbox-label">
+                    <div class="formbold-relative">
+                        <input type="checkbox" id="supportCheckbox" class="formbold-input-checkbox" />
+                        <div class="formbold-checkbox-inner">
+                                <span class="formbold-opacity-0">
+                                    <svg width="11" height="8" viewBox="0 0 11 8" fill="none" class="formbold-stroke-current">
+                                        <path d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z" stroke-width="0.4"></path>
+                                    </svg>
+                                </span>
+                        </div>
+                    </div>
+                    I agree to the defined <a href="#">terms, conditions, and policies</a>
+                </label>
+            </div>
+<br>     
+        <button type="submit">Predict</button>
+        </form>
+    </div>
+</div>
+<br><br>
+
+ <!-- Footer -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>SHMPS</h3>
+              <p>
+                Dowson Street <br>
+                Colombo 07, Sri Lanka<br><br>
+                <strong>Phone:</strong> +94 760918810<br>
+                <strong>Email:</strong> info@myshmps.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/twitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="/facebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="/instergram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="/google" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="linkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/disease">Diesease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictdiabetics">Diabetics Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictheart">Heart Disease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/insurance">Insurace Cost Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Stay Informed, Stay Healthy: Subscribe!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>

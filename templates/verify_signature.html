@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Digital Signature</title>
+</head>
+<body>
+    <h1>Verify Digital Signature</h1>
+    <form action="/verify_signature" method="post">
+        <label for="qr_data">QR Code Data:</label><br>
+        <textarea id="qr_data" name="qr_data" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Verify Signature">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        const form = document.querySelector('form');
+        const resultParagraph = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const qrData = formData.get('qr_data');
+
+            const response = await fetch('/verify_signature', {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+            });
+
+            const result = await response.text();
+            resultParagraph.textContent = result;
+        });
+    </script>
+</body>
+</html>

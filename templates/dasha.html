@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHMPS - Personalized Health Predictor</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    
+    <!-- Favicons -->
+    <link href="assets/img/health.png" rel="icon">
+    <link href="assets/img/health.png" rel="apple-touch-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+    
+    <script src="https://static.elfsight.com/platform/platform.js"></script>
+    
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #8d8d8d;
+            background-image: url("{{ url_for('static', filename='assets/img/dash.jpeg') }}");
+            margin: 0;
+            padding: 0;
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blink-text {
+            animation: blink 2s infinite;
+        }
+
+        /* Letter-by-Letter Animation for the message */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        .typing-text {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #333;
+            animation: typing 5s steps(50, end), blink-caret 1s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #333;
+            }
+        }
+
+        .logo img {
+            max-height: 100px; /* Adjust the height as needed */
+        }
+        
+        /* Dashboard Styles */
+        .dashboard-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-header h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+        
+        .user-info {
+            font-size: 18px;
+        }
+        
+        .logout-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        
+        .logout-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .popup-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            position: relative;
+        }
+        
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #888;
+            cursor: pointer;
+        }
+        
+        /* Form Styles */
+        .verifier-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .verifier-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .verifier-input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .verifier-submit {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+            <a href="index.html" class="logo me-auto"> <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="" class="img-fluid"></a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown"><a href="#"><span>About Us</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/aboutus">About Us</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="/disease">Disease Prediction</a></li>
+                    <li><a href="/insurance">Insurance Cost Prediction</a></li>
+                    <li><a href="/contactus">Contact Us</a></li>
+                    <li><a href="/regform" class="getstarted">Get Started</a></li>
+                    <li><a href="/my_log" class="getstarted">Login</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header>
+    <!-- End Header -->
+    <br><br><br><br><br>
+    
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+              <center>
+              <form  method = "post" action="/verifyme">
+                <h1>Welcome to the SHMPS </h1>
+                <br><br><br>
+                <h2>You have successfully completed Stage 01 authentication</h2>
+                <br><br>
+                <div class="user-info">
+                    {{ username }}
+                </div>
+                <button class="logout-btn" onclick="window.location.href='/logout'">Logout</button>
+            </div>
+            <p><span class="typing-text">Please scan your QR code provided by SHMPS and click the verifyme button to complete the 02nd Stage authentication</span></p> <br>
+          </form>
+        </center>
+        </div>
+        <br>
+        <center>
+        <form method="POST" action="/verifyme">
+          <label for="company_id">Company ID:</label>
+          <input type="text" id="idInput" name="idInput" required>
+          <br><br>
+          <button type="submit">Verify Me</button>
+          <br><br>
+      </form>
+        
+    </center>
+    <br><br>
+    <!-- Footer -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>SHMPS</h3>
+              <p>
+                Dowson Street <br>
+                Colombo 07, Sri Lanka<br><br>
+                <strong>Phone:</strong> +94 760918810<br>
+                <strong>Email:</strong> info@myshmps.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="/twitter" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="/facebook" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="/instergram" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="/google" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="linkedin" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/aboutus">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/disease">Diesease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/terms">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/policy">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictdiabetics">Diabetics Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/predictheart">Heart Disease Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/insurance">Insurace Cost Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Stay Informed, Stay Healthy: Subscribe!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SHMPS - 2023</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>

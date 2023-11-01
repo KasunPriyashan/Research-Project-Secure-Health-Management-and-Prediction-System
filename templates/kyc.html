@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Verification</title>
+    <!-- Add your meta tags and favicon here -->
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/progress.css') }}" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='assets/js/progress.js') }}"></script>
+
+    <script>
+        function redirectToUpload() {
+            // Redirect to the /uploadidf route
+            window.location.href = "/idfront";
+        }
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                const cameraFeed = document.getElementById("camera-feed");
+                if ('srcObject' in cameraFeed) {
+                    cameraFeed.srcObject = stream;
+                } else {
+                    cameraFeed.src = window.URL.createObjectURL(stream);
+                }
+            } catch (error) {
+                console.error("Error accessing camera:", error);
+            }
+        }
+
+        window.onload = startCamera;
+
+        async function capturePhoto() {
+            const cameraFeed = document.getElementById("camera-feed");
+            const captureBtn = document.getElementById("capture-btn");
+            const capturedImageCanvas = document.getElementById("captured-image");
+
+            try {
+                const stream = cameraFeed.srcObject;
+                const track = stream.getTracks()[0];
+                const imageCapture = new ImageCapture(track);
+
+                const blob = await imageCapture.takePhoto();
+                const context = capturedImageCanvas.getContext("2d");
+                context.drawImage(cameraFeed, 0, 0, capturedImageCanvas.width, capturedImageCanvas.height);
+
+                // Convert the canvas to Blob
+                capturedImageCanvas.toBlob(uploadImageToServer, "image/jpeg");
+            } catch (error) {
+                console.error("Error capturing photo:", error);
+            }
+        }
+
+        async function uploadImageToServer(blob) {
+            const formData = new FormData();
+            formData.append("image", blob, "captured_image.jpg");
+
+            try {
+                const response = await fetch("/upload", {
+                    method: "POST",
+                    body: formData,
+                });
+                const result = await response.text();
+                alert(result);
+            } catch (error) {
+                console.error("Error uploading image:", error);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1 class="text-center">KYC Verification</h1>
+
+    <h2 class="text-center">Step 01: Live Selfie</h2>
+
+    <center>
+        <video id="camera-feed" autoplay></video><br>
+        <button class="btn btn-primary" id="capture-btn" onclick="capturePhoto()">Capture Photo</button>
+        <button class="btn btn-success" onclick="redirectToUpload()">Next</button>
+    </center>
+    <canvas id="captured-image" style="display:none;"></canvas>
+</body>
+</html>
